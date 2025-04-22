@@ -1,0 +1,111 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// MODELS
+model User {
+  // Fields
+  id_user  Int      @id @default(autoincrement())
+  id_team  Int?
+  role     Role
+  name     String   @db.VarChar(20)
+  surname  String   @db.VarChar(40)
+  email    String   @unique @db.VarChar(50)
+  password String   @db.VarChar(200)
+  date     DateTime
+  country  String   @db.VarChar(20)
+
+  // Relation fields
+  team        Team?        @relation(fields: [id_team], references: [id_team])
+  attendances Attendance[]
+
+  @@map("users")
+}
+
+model Club {
+  // Fields
+  id_club     Int    @id @default(autoincrement())
+  name        String @db.VarChar(30)
+  city        String @db.VarChar(20)
+  country     String @db.VarChar(20)
+  club_shield String @default("default.png") @db.VarChar(200)
+
+  // Relation fields
+  teams Team[]
+
+  @@map("clubs")
+}
+
+model Team {
+  // Fields
+  id_team     Int @id @default(autoincrement())
+  id_club     Int
+  id_division Int
+
+  // Relation fields
+  club     Club     @relation(fields: [id_club], references: [id_club])
+  users    User[]
+  division Division @relation(fields: [id_division], references: [id_division])
+
+  @@map("teams")
+}
+
+model Division {
+  // Fields
+  id_division Int       @id @default(autoincrement())
+  age_group   Age_group
+  group       String    @db.VarChar(1)
+
+  // Relation fields
+  teams Team[]
+
+  @@map("divisions")
+}
+
+model Attendance {
+  // Fields
+  id_attendance Int      @id @default(autoincrement())
+  id_player     Int
+  date          DateTime
+  assisted      Boolean
+
+  // Relation fields
+  player User @relation(fields: [id_player], references: [id_user])
+
+  @@map("attendances")
+}
+
+model Log {
+  // Fields
+  id_log  Int      @id @default(autoincrement())
+  message String   @db.VarChar(200)
+  date    DateTime
+
+  @@map("logs")
+}
+
+enum Role {
+  ADMIN
+  COACH
+  PLAYER
+}
+
+enum Age_group {
+  BENJAMIN
+  ALEVIN
+  CADETE
+  JUVENIL
+  SENIOR
+}
