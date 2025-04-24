@@ -31,8 +31,6 @@ export const Login = () => {
             // Update login state
             setLoginStatus('login_success');
 
-            
-
             // Redirecting
             setTimeout(() => {
                 window.location.reload();
