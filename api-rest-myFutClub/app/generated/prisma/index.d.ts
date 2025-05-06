@@ -1512,6 +1512,7 @@ export namespace Prisma {
     password: string | null
     date: Date | null
     country: string | null
+    profile_image: string | null
   }
 
   export type UserMaxAggregateOutputType = {
@@ -1524,6 +1525,7 @@ export namespace Prisma {
     password: string | null
     date: Date | null
     country: string | null
+    profile_image: string | null
   }
 
   export type UserCountAggregateOutputType = {
@@ -1536,6 +1538,7 @@ export namespace Prisma {
     password: number
     date: number
     country: number
+    profile_image: number
     _all: number
   }
 
@@ -1560,6 +1563,7 @@ export namespace Prisma {
     password?: true
     date?: true
     country?: true
+    profile_image?: true
   }
 
   export type UserMaxAggregateInputType = {
@@ -1572,6 +1576,7 @@ export namespace Prisma {
     password?: true
     date?: true
     country?: true
+    profile_image?: true
   }
 
   export type UserCountAggregateInputType = {
@@ -1584,6 +1589,7 @@ export namespace Prisma {
     password?: true
     date?: true
     country?: true
+    profile_image?: true
     _all?: true
   }
 
@@ -1683,6 +1689,7 @@ export namespace Prisma {
     password: string
     date: Date
     country: string
+    profile_image: string | null
     _count: UserCountAggregateOutputType | null
     _avg: UserAvgAggregateOutputType | null
     _sum: UserSumAggregateOutputType | null
@@ -1714,6 +1721,7 @@ export namespace Prisma {
     password?: boolean
     date?: boolean
     country?: boolean
+    profile_image?: boolean
     team?: boolean | User$teamArgs<ExtArgs>
     attendances?: boolean | User$attendancesArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
@@ -1729,6 +1737,7 @@ export namespace Prisma {
     password?: boolean
     date?: boolean
     country?: boolean
+    profile_image?: boolean
     team?: boolean | User$teamArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -1742,6 +1751,7 @@ export namespace Prisma {
     password?: boolean
     date?: boolean
     country?: boolean
+    profile_image?: boolean
     team?: boolean | User$teamArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -1755,9 +1765,10 @@ export namespace Prisma {
     password?: boolean
     date?: boolean
     country?: boolean
+    profile_image?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id_user" | "id_team" | "role" | "name" | "surname" | "email" | "password" | "date" | "country", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id_user" | "id_team" | "role" | "name" | "surname" | "email" | "password" | "date" | "country" | "profile_image", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     team?: boolean | User$teamArgs<ExtArgs>
     attendances?: boolean | User$attendancesArgs<ExtArgs>
@@ -1786,6 +1797,7 @@ export namespace Prisma {
       password: string
       date: Date
       country: string
+      profile_image: string | null
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -2220,6 +2232,7 @@ export namespace Prisma {
     readonly password: FieldRef<"User", 'String'>
     readonly date: FieldRef<"User", 'DateTime'>
     readonly country: FieldRef<"User", 'String'>
+    readonly profile_image: FieldRef<"User", 'String'>
   }
     
 
@@ -8080,7 +8093,8 @@ export namespace Prisma {
     email: 'email',
     password: 'password',
     date: 'date',
-    country: 'country'
+    country: 'country',
+    profile_image: 'profile_image'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -8270,6 +8284,7 @@ export namespace Prisma {
     password?: StringFilter<"User"> | string
     date?: DateTimeFilter<"User"> | Date | string
     country?: StringFilter<"User"> | string
+    profile_image?: StringNullableFilter<"User"> | string | null
     team?: XOR<TeamNullableScalarRelationFilter, TeamWhereInput> | null
     attendances?: AttendanceListRelationFilter
   }
@@ -8284,6 +8299,7 @@ export namespace Prisma {
     password?: SortOrder
     date?: SortOrder
     country?: SortOrder
+    profile_image?: SortOrderInput | SortOrder
     team?: TeamOrderByWithRelationInput
     attendances?: AttendanceOrderByRelationAggregateInput
   }
@@ -8301,6 +8317,7 @@ export namespace Prisma {
     password?: StringFilter<"User"> | string
     date?: DateTimeFilter<"User"> | Date | string
     country?: StringFilter<"User"> | string
+    profile_image?: StringNullableFilter<"User"> | string | null
     team?: XOR<TeamNullableScalarRelationFilter, TeamWhereInput> | null
     attendances?: AttendanceListRelationFilter
   }, "id_user" | "email">
@@ -8315,6 +8332,7 @@ export namespace Prisma {
     password?: SortOrder
     date?: SortOrder
     country?: SortOrder
+    profile_image?: SortOrderInput | SortOrder
     _count?: UserCountOrderByAggregateInput
     _avg?: UserAvgOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
@@ -8335,6 +8353,7 @@ export namespace Prisma {
     password?: StringWithAggregatesFilter<"User"> | string
     date?: DateTimeWithAggregatesFilter<"User"> | Date | string
     country?: StringWithAggregatesFilter<"User"> | string
+    profile_image?: StringNullableWithAggregatesFilter<"User"> | string | null
   }
 
   export type ClubWhereInput = {
@@ -8598,6 +8617,7 @@ export namespace Prisma {
     password: string
     date: Date | string
     country: string
+    profile_image?: string | null
     team?: TeamCreateNestedOneWithoutUsersInput
     attendances?: AttendanceCreateNestedManyWithoutPlayerInput
   }
@@ -8612,6 +8632,7 @@ export namespace Prisma {
     password: string
     date: Date | string
     country: string
+    profile_image?: string | null
     attendances?: AttendanceUncheckedCreateNestedManyWithoutPlayerInput
   }
 
@@ -8623,6 +8644,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     country?: StringFieldUpdateOperationsInput | string
+    profile_image?: NullableStringFieldUpdateOperationsInput | string | null
     team?: TeamUpdateOneWithoutUsersNestedInput
     attendances?: AttendanceUpdateManyWithoutPlayerNestedInput
   }
@@ -8637,6 +8659,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     country?: StringFieldUpdateOperationsInput | string
+    profile_image?: NullableStringFieldUpdateOperationsInput | string | null
     attendances?: AttendanceUncheckedUpdateManyWithoutPlayerNestedInput
   }
 
@@ -8650,6 +8673,7 @@ export namespace Prisma {
     password: string
     date: Date | string
     country: string
+    profile_image?: string | null
   }
 
   export type UserUpdateManyMutationInput = {
@@ -8660,6 +8684,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     country?: StringFieldUpdateOperationsInput | string
+    profile_image?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type UserUncheckedUpdateManyInput = {
@@ -8672,6 +8697,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     country?: StringFieldUpdateOperationsInput | string
+    profile_image?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ClubCreateInput = {
@@ -8955,6 +8981,21 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
   export type TeamNullableScalarRelationFilter = {
     is?: TeamWhereInput | null
     isNot?: TeamWhereInput | null
@@ -8985,6 +9026,7 @@ export namespace Prisma {
     password?: SortOrder
     date?: SortOrder
     country?: SortOrder
+    profile_image?: SortOrder
   }
 
   export type UserAvgOrderByAggregateInput = {
@@ -9002,6 +9044,7 @@ export namespace Prisma {
     password?: SortOrder
     date?: SortOrder
     country?: SortOrder
+    profile_image?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
@@ -9014,6 +9057,7 @@ export namespace Prisma {
     password?: SortOrder
     date?: SortOrder
     country?: SortOrder
+    profile_image?: SortOrder
   }
 
   export type UserSumOrderByAggregateInput = {
@@ -9093,6 +9137,24 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
   export type TeamListRelationFilter = {
@@ -9335,6 +9397,10 @@ export namespace Prisma {
 
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
+  }
+
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
   }
 
   export type TeamUpdateOneWithoutUsersNestedInput = {
@@ -9621,6 +9687,20 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -9714,6 +9794,23 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
   export type NestedEnumAge_groupFilter<$PrismaModel = never> = {
@@ -9905,6 +10002,7 @@ export namespace Prisma {
     password: string
     date: Date | string
     country: string
+    profile_image?: string | null
     attendances?: AttendanceCreateNestedManyWithoutPlayerInput
   }
 
@@ -9917,6 +10015,7 @@ export namespace Prisma {
     password: string
     date: Date | string
     country: string
+    profile_image?: string | null
     attendances?: AttendanceUncheckedCreateNestedManyWithoutPlayerInput
   }
 
@@ -10001,6 +10100,7 @@ export namespace Prisma {
     password?: StringFilter<"User"> | string
     date?: DateTimeFilter<"User"> | Date | string
     country?: StringFilter<"User"> | string
+    profile_image?: StringNullableFilter<"User"> | string | null
   }
 
   export type DivisionUpsertWithoutTeamsInput = {
@@ -10070,6 +10170,7 @@ export namespace Prisma {
     password: string
     date: Date | string
     country: string
+    profile_image?: string | null
     team?: TeamCreateNestedOneWithoutUsersInput
   }
 
@@ -10083,6 +10184,7 @@ export namespace Prisma {
     password: string
     date: Date | string
     country: string
+    profile_image?: string | null
   }
 
   export type UserCreateOrConnectWithoutAttendancesInput = {
@@ -10109,6 +10211,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     country?: StringFieldUpdateOperationsInput | string
+    profile_image?: NullableStringFieldUpdateOperationsInput | string | null
     team?: TeamUpdateOneWithoutUsersNestedInput
   }
 
@@ -10122,6 +10225,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     country?: StringFieldUpdateOperationsInput | string
+    profile_image?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type AttendanceCreateManyPlayerInput = {
@@ -10177,6 +10281,7 @@ export namespace Prisma {
     password: string
     date: Date | string
     country: string
+    profile_image?: string | null
   }
 
   export type UserUpdateWithoutTeamInput = {
@@ -10187,6 +10292,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     country?: StringFieldUpdateOperationsInput | string
+    profile_image?: NullableStringFieldUpdateOperationsInput | string | null
     attendances?: AttendanceUpdateManyWithoutPlayerNestedInput
   }
 
@@ -10199,6 +10305,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     country?: StringFieldUpdateOperationsInput | string
+    profile_image?: NullableStringFieldUpdateOperationsInput | string | null
     attendances?: AttendanceUncheckedUpdateManyWithoutPlayerNestedInput
   }
 
@@ -10211,6 +10318,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     country?: StringFieldUpdateOperationsInput | string
+    profile_image?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type TeamCreateManyDivisionInput = {

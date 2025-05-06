@@ -17,15 +17,16 @@ datasource db {
 // MODELS
 model User {
   // Fields
-  id_user  Int      @id @default(autoincrement())
-  id_team  Int?
-  role     Role
-  name     String   @db.VarChar(20)
-  surname  String   @db.VarChar(40)
-  email    String   @unique @db.VarChar(50)
-  password String   @db.VarChar(200)
-  date     DateTime
-  country  String   @db.VarChar(20)
+  id_user       Int      @id @default(autoincrement())
+  id_team       Int?
+  role          Role
+  name          String   @db.VarChar(20)
+  surname       String   @db.VarChar(40)
+  email         String   @unique @db.VarChar(50)
+  password      String   @db.VarChar(200)
+  date          DateTime
+  country       String   @db.VarChar(20)
+  profile_image String?
 
   // Relation fields
   team        Team?        @relation(fields: [id_team], references: [id_team])

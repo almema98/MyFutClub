@@ -9,10 +9,13 @@ export const Nav = () => {
                     <Link to={'/myFutClub/home'}>Home</Link>
                 </li>
                 <li className='navbar-list-element'>
-                    Plantilla
+                    Mi perfil
                 </li>
                 <li className='navbar-list-element'>
-                    Asistencia
+                    Ajustes
+                </li>
+                <li className='navbar-list-element'>
+                    <Link to={'/myFutClub/logout'}>Cerrar sesión</Link>
                 </li>
             </ul>
         </nav>

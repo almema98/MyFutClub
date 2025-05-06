@@ -10,7 +10,8 @@ const userData: Prisma.UserCreateInput[] = [
         email: 'almema98@gmail.com',
         password: '$2a$12$9RKPBYC/vaVrzwE53vyiOOMAtwXoQmAvSRl6IVH7AgnxI9Gglxy4u',
         date: new Date(1998, 5, 3),
-        country: "spain"
+        country: 'spain',
+        profile_image: 'default.png'
     }
 ]
 

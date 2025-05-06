@@ -126,7 +126,8 @@ exports.Prisma.UserScalarFieldEnum = {
   email: 'email',
   password: 'password',
   date: 'date',
-  country: 'country'
+  country: 'country',
+  profile_image: 'profile_image'
 };
 
 exports.Prisma.ClubScalarFieldEnum = {

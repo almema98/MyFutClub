@@ -35,7 +35,7 @@ body {
 
 
 
-/* FORMULARIOS */
+/* FORMS */
 .form__container {
     margin-top: 10px;
 
@@ -136,6 +136,12 @@ body {
     color: var(--font-color-error);
 }
 
+/* ELEMENTS */
+.spam {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 
 /*-------------------- LOGIN --------------------*/
 .login__container {
@@ -179,6 +185,20 @@ body {
     margin-bottom: 15px;
 }
 
+.header .header-avatar__container {
+    background-color: #a9b0b9;
+
+    width: 120px;
+    height: 120px;
+
+    border-radius: 100px;
+    overflow: hidden;
+
+    border: 5px solid var(--color-background-detail-element);
+    
+    margin-bottom: 10px;
+}
+
 .navbar .navbar-list .navbar-list-element{
     margin-top: 10px;
     margin-bottom: 10px;
@@ -198,6 +218,7 @@ body {
 
 .content__container {
     margin-top: 30px;
+    text-align: center;
 }
 
 
@@ -238,4 +259,3 @@ body {
 .menu-item-name {
     margin-top: 15px;
 }
-

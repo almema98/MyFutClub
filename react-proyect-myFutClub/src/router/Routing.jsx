@@ -5,6 +5,7 @@ import { PrivateLayout } from '../components/layout/private/PrivateLayout';
 import { Login } from '../components/user/Login';
 import { AuthProvider } from '../context/AuthProvider';
 import { Home } from '../components/layout/private/Home';
+import { Logout } from '../components/user/Logout';
 
 export const Routing = () => {
     return (
@@ -22,6 +23,7 @@ export const Routing = () => {
                     <Route path='/myFutClub' element={<PrivateLayout />} >
                         <Route index element={<Home />} />
                         <Route path='home' element={<Home />} />
+                        <Route path='logout' element={<Logout />} />
                     </Route>
 
                     {/* Error route */}
