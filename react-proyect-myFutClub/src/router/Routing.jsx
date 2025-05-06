@@ -4,6 +4,7 @@ import { PublicLayout } from '../components/layout/public/PublicLayout';
 import { PrivateLayout } from '../components/layout/private/PrivateLayout';
 import { Login } from '../components/user/Login';
 import { AuthProvider } from '../context/AuthProvider';
+import { Home } from '../components/layout/private/Home';
 
 export const Routing = () => {
     return (
@@ -19,6 +20,8 @@ export const Routing = () => {
 
                     {/* Private route group */}
                     <Route path='/myFutClub' element={<PrivateLayout />} >
+                        <Route index element={<Home />} />
+                        <Route path='home' element={<Home />} />
                     </Route>
 
                     {/* Error route */}
