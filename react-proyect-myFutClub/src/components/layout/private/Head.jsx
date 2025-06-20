@@ -3,6 +3,7 @@ import logo from '../../../assets/img/myFutClub-logo.png';
 import avatar from '../../../assets/img/default.png';
 import { Nav } from './Nav';
 import useAuth from '../../../hooks/useAuth';
+import { Global } from '../../../helpers/Global';
 
 export const Head = () => {
 
@@ -17,7 +18,7 @@ export const Head = () => {
             <div className='header-avatar__container'>
                 {auth.profile_image !== "default.png"
                     ?
-                        <img src={auth.profile_image} alt='Foto de perfil' className='avatar-header' />
+                        <img src={Global.url + "user/avatar/" + auth.profile_image} alt='Foto de perfil' className='avatar-header' />
                     :
                         <img src={avatar} alt='Foto de perfil' className='avatar-header' />
                 }

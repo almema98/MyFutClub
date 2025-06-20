@@ -2,13 +2,15 @@
 const prisma = require('../lib/prisma');
 const bcrypt = require('bcrypt');
 const jwt = require('../services/jwt');
+const fs = require("fs");
+const path = require("path");
 
 // Endpoint for loggin an user into the app. Returns the token containing the user's encrypted data.
 const login = async (req, res) => {
     // Receive parameters form body.
     let params = req.body;
 
-    // Check that parameters arrives correctly.
+    // Check that parameters arrive correctly.
     if (!params.email || !params.password) {
         return res.status(419).json({
             status: "error",
@@ -96,7 +98,7 @@ const profile = async (req, res) => {
     try {
         // Query to get user profile data.
         const userProfile = await prisma.user.findUnique({
-            where: { 
+            where: {
                 id_user: parseInt(userId)
             },
             omit: {
@@ -109,7 +111,7 @@ const profile = async (req, res) => {
             return res.status(404).json({
                 status: "error",
                 message: "User not found."
-            })
+            });
         }
 
         // Return response
@@ -120,7 +122,6 @@ const profile = async (req, res) => {
         });
 
     } catch (error) {
-        console.log(error);
         return res.status(500).json({
             status: "error",
             message: "Internal server errror (profile)."
@@ -128,8 +129,34 @@ const profile = async (req, res) => {
     }
 }
 
+
+// Endpoint to get the avatar user.
+const avatar = (req, res) => {
+    // Receive url param.
+    const fileName = req.params.fileName;
+
+    // Compose the absolut path image.
+    const filePath = "./uploads/avatars/" + fileName;
+
+    // Check that file exists.
+    fs.stat(filePath, (error, exist) => {
+        if (!exist) {
+            return res.status(404).send({
+                status: "error",
+                mesagge: "Image not exist."
+            });
+        }
+
+        // Return file (with express)
+        // I am use resolve because "sendFile" requires an absolut path.
+        return res.sendFile(path.resolve(filePath));
+    });
+}
+
+
 module.exports = {
     login,
     register,
-    profile
+    profile,
+    avatar
 }

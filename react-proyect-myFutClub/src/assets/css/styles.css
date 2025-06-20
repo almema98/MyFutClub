@@ -7,6 +7,7 @@
     --color-background-button: #0c478a;
     --color-background-button-hover: #0a2f5a;
     --color-background-content: white;
+    --color-background-first-row-table: rgb(148, 148, 241);
 
     --font-family: "Poppins", sans-serif;
 
@@ -19,6 +20,7 @@
     --font-size-title-form: 40px;
     --font-size-input: 18px;
     --font-size-message: 16px;
+    --font-size-table: 18px;
 
     --border-radius-main-element: 10px;
 }
@@ -31,6 +33,10 @@ body {
     color: var(--font-color-general);
     font-size: var(--font-size-general);
     font-family: var(--font-family);
+}
+
+.title {
+    text-transform: uppercase;
 }
 
 
@@ -258,4 +264,52 @@ body {
 
 .menu-item-name {
     margin-top: 15px;
+}
+
+
+/*-------------------- MENU MY TEAMS (COACH) --------------------*/
+.menu-my-teams-name {
+    text-transform: uppercase;
+}
+
+.menu-item-club-icon {
+    width: 70px;
+    height: 70px;
+}
+
+
+/*-------------------- SQUAD LIST (COACH) --------------------*/
+.squad-list {
+    border: 1px solid black;
+    text-align: center;
+}
+
+.squad-list-row {
+    border-bottom: 1px solid black;
+}
+
+.squad-list-row:first-child {
+    background-color: var(--color-background-first-row-table);
+}
+
+.squad-list-row td {
+    padding: 10px;
+    font-size: var(--font-size-table);
+}
+
+.squad-list-row:first-child td {
+    font-weight: bolder;
+    font-size: var(--font-size-general);
+}
+
+.avatar-squad-list__container {
+    background-color: #a9b0b9;
+
+    width: 60px;
+    height: 60px;
+
+    border-radius: 100px;
+    overflow: hidden;
+
+    border: 5px solid var(--color-background-detail-element);
 }

@@ -7,6 +7,7 @@
 generator client {
     provider = "prisma-client-js"
     output   = "../app/generated/prisma"
+    previewFeatures = ["relationJoins"]
 }
 
 datasource db {
@@ -19,7 +20,7 @@ datasource db {
 model User {
     // Fields
     id_user         Int     @id @default(autoincrement())
-    id_team         Int?
+    team            Int?    // Only for players
     role            Role 
     name            String  @db.VarChar(20)
     surname         String  @db.VarChar(40)
@@ -27,11 +28,12 @@ model User {
     password        String  @db.VarChar(200)
     date            DateTime
     country         String  @db.VarChar(20)
-    profile_image   String?
+    profile_image   String? @default("default.png") @db.VarChar(200)
 
     // Relation fields
-    team            Team?            @relation(fields: [id_team], references: [id_team])
+    playerToTeam    Team?            @relation("PlayerToTeam", fields: [team], references: [id_team])
     attendances     Attendance[]
+    teams           Team[]           @relation("TeamToCoach")
 
     @@map("users")
 }
@@ -42,7 +44,7 @@ model Club {
     name        String  @db.VarChar(30)
     city        String  @db.VarChar(20)
     country     String  @db.VarChar(20)
-    club_shield String  @default("default.png") @db.VarChar(200)
+    club_shield String  @default("default-shield.png") @db.VarChar(200)
 
     // Relation fields
     teams   Team[]
@@ -53,13 +55,15 @@ model Club {
 model Team {
     // Fields
     id_team         Int     @id @default(autoincrement())
-    id_club         Int
-    id_division     Int
+    coach           Int     // Only for coaches
+    club            Int
+    division        Int
 
     // Relation fields
-    club        Club        @relation(fields: [id_club], references: [id_club])
-    users       User[]
-    division    Division    @relation(fields: [id_division], references: [id_division])
+    teamToCoach       User        @relation("TeamToCoach", fields: [coach], references: [id_user])
+    teamToClub        Club        @relation(fields: [club], references: [id_club])
+    users             User[]      @relation("PlayerToTeam")
+    teamToDivision    Division    @relation(fields: [division], references: [id_division])
 
     @@map("teams")
 }
@@ -79,12 +83,12 @@ model Division {
 model Attendance {
     // Fields
     id_attendance   Int         @id @default(autoincrement())
-    id_player       Int
+    player          Int
     date            DateTime
     assisted        Boolean
 
     // Relation fields
-    player  User    @relation(fields: [id_player], references: [id_user])
+    attendanceToPlayer  User    @relation(fields: [player], references: [id_user])
 
     @@map("attendances")
 }

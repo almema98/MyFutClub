@@ -17,7 +17,7 @@ export const PublicLayout = () => {
                     ?
                         <Outlet />
                     :
-                        <Navigate to={'/myFutClub'} />
+                        <Navigate to={'/myfutclub'} />
                 }
             
             </section>

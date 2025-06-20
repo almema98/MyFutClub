@@ -1,27 +1,23 @@
 import React from 'react';
-import iconTeam from '../../../assets/icons/icon-team.png';
+import useAuth from '../../../hooks/useAuth';
+import { MenuCoach } from './menus/coach/MenuCoach';
+import { MenuAdmin } from './menus/admin/MenuAdmin';
 
 export const Home = () => {
+
+    const {auth} = useAuth();
+
     return (
         <>
-            <h1 className='title'>Home</h1>
+            <h1 className='title'>HOME</h1>
 
             <div className='content__container menu__container'>
 
-                <div className='menu-item__container'>
-                    <img src={iconTeam} alt='icon-Plantilla' className='menu-item-icon'/>
-                    <span className='menu-item-name'>Plantilla</span>
-                </div>
+                {/* Load a specific menu depending on the user's role.*/}
+                { auth.role === 'ADMIN' && <MenuAdmin /> }
+                { auth.role === 'COACH' && <MenuCoach /> }
+                
 
-                <div className='menu-item__container'>
-                    
-                    <span className='menu-item-name'>Estadísticas</span>
-                </div>
-
-                <div className='menu-item__container'>
-                    
-                    <span className='menu-item-name'>Asistencia</span>
-                </div>
             </div>
         </>
     )

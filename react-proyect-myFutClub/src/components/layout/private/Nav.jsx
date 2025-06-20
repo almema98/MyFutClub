@@ -1,12 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { NavLink } from 'react-router';
 
 export const Nav = () => {
     return (
         <nav className='navbar'>
             <ul className='navbar-list'>
                 <li className='navbar-list-element'>
-                    <Link to={'/myFutClub/home'}>Home</Link>
+                    <NavLink to={'/myfutclub/home'}>Home</NavLink>
                 </li>
                 <li className='navbar-list-element'>
                     Mi perfil
@@ -15,7 +15,7 @@ export const Nav = () => {
                     Ajustes
                 </li>
                 <li className='navbar-list-element'>
-                    <Link to={'/myFutClub/logout'}>Cerrar sesión</Link>
+                    <NavLink to={'/myfutclub/logout'}>Cerrar sesión</NavLink>
                 </li>
             </ul>
         </nav>

@@ -22,8 +22,12 @@ app.use( express.urlencoded({ extended: true }) );
 
 // Load route configuration
 const UserRoutes = require("./routes/user");
+const TeamRoutes = require("./routes/team");
+const ClubRoutes = require("./routes/club");
 
 app.use("/api/user", UserRoutes);
+app.use("/api/team", TeamRoutes);
+app.use("/api/club", ClubRoutes);
 
 // Put the server to listen http requests
 app.listen(port, () => {
