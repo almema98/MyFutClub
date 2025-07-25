@@ -16,11 +16,6 @@ export const MenuCoach = () => {
 
                 <span className='menu-item-name'>Mi Club</span>
             </div>
-
-            <div className='menu-item__container'>
-
-                <span className='menu-item-name'>Otros</span>
-            </div>
         </>
     )
 }

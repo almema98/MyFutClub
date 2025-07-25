@@ -6,13 +6,16 @@ import { Login } from '../components/user/Login';
 import { AuthProvider } from '../context/AuthProvider';
 import { Home } from '../components/layout/private/Home';
 import { Logout } from '../components/user/Logout';
-import { MyTeams } from '../components/layout/private/menus/coach/myTeams/MyTeams';
+import { MyTeams } from '../components/layout/private/menus/coach/team/MyTeams';
 import { SquadList } from '../components/team/SquadList';
+import { MenuTeam } from '../components/layout/private/menus/coach/team/MenuTeam';
+import { Attendance } from '../components/team/Attendance';
+
 
 
 export const Routing = () => {
     return (
-        <BrowserRouter basename='/myfutclub'>
+        <BrowserRouter basename='/MyFutClub/'>
             <AuthProvider>
                 <Routes>
                     {/* Public route group */}
@@ -28,10 +31,18 @@ export const Routing = () => {
                         <Route path='home' element={<Home />} />
                         <Route path='mis-equipos' element={<Outlet />}>
                             <Route index element={<MyTeams />} />
-                            <Route path='plantilla' element={<SquadList />} />
+                            <Route path='menu-equipo' element={<Outlet />} >
+                                <Route index element={<MenuTeam />} />
+                                <Route path='plantilla' element={<Outlet />} >
+                                    <Route index element={<SquadList />} />
+                                </Route>
+                                <Route path='asistencia' element={<Outlet />} >
+                                    <Route index element={<Attendance />} />
+                                </Route>
+                            </Route>
                         </Route>
                         <Route path='logout' element={<Logout />} />
-                    </Route>
+                    </Route> 
 
                     {/* Error route */}
                     <Route path='*' element={

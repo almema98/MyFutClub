@@ -1,6 +1,7 @@
 :root {
     --color-background-general: #424242;
     --color-background-main-element: #4CAF50;
+    --color-background-secondary-element: #5ccece;
     --color-background-contrast-element: #2E7D32;
     --color-background-detail-element: #1565C0;
     --color-border-input: #a9b0b9;
@@ -8,7 +9,7 @@
     --color-background-button-hover: #0a2f5a;
     --color-background-content: white;
     --color-background-first-row-table: rgb(148, 148, 241);
-
+    
     --font-family: "Poppins", sans-serif;
 
     --font-color-general: white;
@@ -37,6 +38,7 @@ body {
 
 .title {
     text-transform: uppercase;
+    text-align: center;
 }
 
 
@@ -53,8 +55,6 @@ body {
     padding-right: 60px;
     padding-bottom: 40px;
     margin-bottom: 20px;
-
-
 }
 
 .title-form__container {
@@ -278,10 +278,26 @@ body {
 }
 
 
+/*-------------------- MENU TEAM (COACH) --------------------*/
+.club-shield-team {
+    width: 100px;
+    height: 100px;
+    display: block;
+    margin: auto;
+
+    border-radius: 20px;
+    overflow: hidden;
+    border: 5px solid var(--color-background-detail-element);
+
+    padding: 5px;
+}
+
+
 /*-------------------- SQUAD LIST (COACH) --------------------*/
 .squad-list {
     border: 1px solid black;
     text-align: center;
+    margin: auto;
 }
 
 .squad-list-row {
@@ -312,4 +328,63 @@ body {
     overflow: hidden;
 
     border: 5px solid var(--color-background-detail-element);
+}
+
+.field-country-squadlist::first-letter {
+    text-transform: uppercase;
+}
+
+/*-------------------- ATTENDANCE (COACH) --------------------*/
+.menu-attendance {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.date-now-attendance__container {
+    font-size: 20px;
+
+    width: 280px;
+    background-color: var(--color-background-secondary-element);
+
+    border: 2px solid var(--color-background-detail-element);
+    border-radius: 20px;
+}
+
+.attendance-form {
+    width: 100%;
+}
+
+.attendance-table {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+}
+
+.attendance-table-legend {
+    text-transform: uppercase;
+    font-weight: bolder;
+    background-color: var(--color-background-first-row-table);
+}
+
+.attendance-table-row {
+    display: grid;
+    grid-template-areas: 
+        "player checkbox";
+    grid-template-columns: 80% 20%;
+    
+    border-bottom: 1px solid black;
+}
+
+.attendance-table-row:last-child {
+    border-bottom: none;
+}
+
+.attendance-table-player-column {
+    border-right: 1px solid black;
+    grid-area: player;
+}
+
+.attendance-table-attendance-column {
+    grid: checkbox;
 }

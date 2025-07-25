@@ -42,8 +42,11 @@ export const MyTeams = () => {
             <div className='content__container menu__container'>
                 {teams.map(team => {
                     return (
-                        <Link to={"/myfutclub/mis-equipos/plantilla"}
-                            state={{ idTeam: team.id_team, teamName: `${team.club.name} - ${team.division.age_group} ${team.division.group}` }}
+                        <Link to={'/myfutclub/mis-equipos/menu-equipo'}
+                            state={{ idTeam: team.id_team,
+                                     teamName: `${team.club.name} - ${team.division.age_group} ${team.division.group}`,
+                                     clubShield: team.club.club_shield
+                            }}
                             key={team.id_team}
                         >
                             <div className='menu-item__container'>
